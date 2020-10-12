@@ -10,7 +10,7 @@ export default function Card(props) {
             src={props.imgsrc}
             className='card-img-top'
             alt={props.imgsrc}
-            style={{ height: '374px', width: '474px' }}
+            style={{ height: '374px', width: '494px' }}
           />
           <div className='card-body'>
             <h5 className='card-title font-weight-bold'>{props.title}</h5>

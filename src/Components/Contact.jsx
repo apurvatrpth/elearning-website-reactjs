@@ -1,9 +1,33 @@
 import React, { useState } from 'react';
 
 export default function Contact() {
+  const [data, setData] = useState({
+    fullname: '',
+    phone: '',
+    email: '',
+    msg: '',
+  });
+
+  const InputEvent = (e) => {
+    const { name, value } = e.target;
+
+    setData((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
+
+  const formSubmit = (e) => {
+    alert(
+      `Thank you for showing interest ${data.fullname}. Our customer representative will get in touch with you`
+    );
+  };
+
   return (
     <>
-      {/* <div className='my-5'>
+      <div className='my-5'>
         <h1 className='text-center' style={{ color: '#484848' }}>
           Contact Us
         </h1>
@@ -61,6 +85,7 @@ export default function Contact() {
                 onChange={InputEvent}
               ></textarea>
             </div>
+            <br />
             <div className='col-12'>
               <button type='submit' class='btn btn-outline-primary'>
                 Submit
@@ -68,7 +93,7 @@ export default function Contact() {
             </div>
           </form>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
