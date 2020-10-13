@@ -15,8 +15,11 @@ export default function Card(props) {
           <div className='card-body'>
             <h5 className='card-title font-weight-bold'>{props.title}</h5>
             <p className='card-text'></p>
-            <NavLink to='/' className='btn btn-primary'>
-              Buy Now
+            <NavLink
+              to={props.isLoggedIn ? '/add' : '/login'}
+              className='btn btn-primary'
+            >
+              Buy now
             </NavLink>
           </div>
         </div>

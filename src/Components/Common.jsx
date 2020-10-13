@@ -15,7 +15,7 @@ export default function Common(props) {
                   <div className='header-img'>
                     <img
                       src={props.imgsrc}
-                      alt='Common image'
+                      alt='Common pic'
                       style={{
                         display: 'block',
                         marginLeft: 'auto',

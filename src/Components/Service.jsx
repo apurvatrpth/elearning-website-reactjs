@@ -1,8 +1,10 @@
 import React from 'react';
 import Card from './Card';
-import Courses from './hardCodedCoursesList';
+import Courses from './CourseList';
 
-export default function Service() {
+export default function Service(props) {
+  console.log(props.isLoggedIn + ' hi');
+
   return (
     <>
       <div className='my-5'>
@@ -16,7 +18,12 @@ export default function Service() {
             <div className='row gy-4'>
               {Courses.map((item, ind) => {
                 return (
-                  <Card key={ind} imgsrc={item.imgsrc} title={item.title} />
+                  <Card
+                    key={ind}
+                    imgsrc={item.imgsrc}
+                    title={item.title}
+                    isLoggedIn={props.isLoggedIn}
+                  />
                 );
               })}
             </div>
