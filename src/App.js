@@ -9,16 +9,10 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import About from './Components/About';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      logIn: false,
-    };
-  }
-
   render() {
     return (
       <>
@@ -29,7 +23,7 @@ class App extends Component {
             exact
             render={(prop) => (
               <>
-                <Home isLoggedIn={this.state.logIn} />
+                <Home />
               </>
             )}
           ></Route>
@@ -39,7 +33,7 @@ class App extends Component {
             exact
             render={(prop) => (
               <>
-                <Service isLoggedIn={this.state.logIn} />
+                <Service />
               </>
             )}
           ></Route>
@@ -48,7 +42,7 @@ class App extends Component {
             exact
             render={(prop) => (
               <>
-                <Contact isLoggedIn={this.state.logIn} />
+                <Contact />
               </>
             )}
           ></Route>
@@ -57,10 +51,12 @@ class App extends Component {
             exact
             render={(prop) => (
               <>
-                <About isLoggedIn={this.state.logIn} />
+                <About />
               </>
             )}
           ></Route>
+          <Route path='/login' exact component={Login}></Route>
+          <Route path='/signup' exact component={Signup}></Route>
           <Redirect to='/'></Redirect>
         </Switch>
         <br />

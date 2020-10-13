@@ -3,8 +3,6 @@ import Card from './Card';
 import Courses from './CourseList';
 
 export default function Service(props) {
-  console.log(props.isLoggedIn + ' hi');
-
   return (
     <>
       <div className='my-5'>
@@ -18,12 +16,7 @@ export default function Service(props) {
             <div className='row gy-4'>
               {Courses.map((item, ind) => {
                 return (
-                  <Card
-                    key={ind}
-                    imgsrc={item.imgsrc}
-                    title={item.title}
-                    isLoggedIn={props.isLoggedIn}
-                  />
+                  <Card key={ind} imgsrc={item.imgsrc} title={item.title} />
                 );
               })}
             </div>

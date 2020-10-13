@@ -34,6 +34,24 @@ export default function Navbar() {
                           exact
                           activeClassName='nav-active'
                           className='nav-link'
+                          to='/login'
+                        >
+                          Login
+                        </NavLink>
+                        <NavLink
+                          exact
+                          activeClassName='nav-active'
+                          className='nav-link'
+                          to='/signup'
+                        >
+                          Signup
+                        </NavLink>
+                      </li>
+                      <li className='nav-item'>
+                        <NavLink
+                          exact
+                          activeClassName='nav-active'
+                          className='nav-link'
                           aria-current='page'
                           to='/'
                         >
