@@ -73,6 +73,17 @@ export default function Navbar() {
                           exact
                           activeClassName='nav-active'
                           className='nav-link'
+                          to='/mycourses'
+                        >
+                          My Courses
+                        </NavLink>
+                      </li>
+
+                      <li className='nav-item'>
+                        <NavLink
+                          exact
+                          activeClassName='nav-active'
+                          className='nav-link'
                           to='/about'
                         >
                           About

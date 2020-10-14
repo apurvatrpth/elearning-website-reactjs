@@ -11,6 +11,7 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import MyCourses from './Components/MyCourses';
 
 class App extends Component {
   render() {
@@ -57,6 +58,7 @@ class App extends Component {
           ></Route>
           <Route path='/login' exact component={Login}></Route>
           <Route path='/signup' exact component={Signup}></Route>
+          <Route path='/mycourses' exact component={MyCourses}></Route>
           <Redirect to='/'></Redirect>
         </Switch>
         <br />

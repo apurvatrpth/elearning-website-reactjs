@@ -28,9 +28,12 @@ const Login = () => {
         console.log(state.id + ' values ' + state.password);
         if (item.id === state.id && item.password === state.password) {
           localStorage.setItem('loggedIn', true);
+          localStorage.setItem('id', state.id);
+          localStorage.setItem('password', state.password);
           res();
         }
       });
+
       rej();
     });
 

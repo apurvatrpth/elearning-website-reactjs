@@ -26,6 +26,8 @@ const Signup = () => {
     var promise = new Promise((res, rej) => {
       //insert logic here to add a user, currently it is allowing all users to go ahead (fake login)
       localStorage.setItem('loggedIn', true);
+      localStorage.setItem('id', state.id);
+      localStorage.setItem('password', state.password);
       res();
 
       // localStorage.setItem('loggedIn', false);
