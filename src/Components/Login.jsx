@@ -1,6 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import UserList from './UserList';
 
 const Login = () => {
   const history = useHistory();
@@ -24,17 +24,24 @@ const Login = () => {
     e.preventDefault();
 
     var promise = new Promise((res, rej) => {
-      UserList.map((item) => {
-        console.log(state.id + ' values ' + state.password);
-        if (item.id === state.id && item.password === state.password) {
+      axios({
+        method: 'get',
+        url: `http://localhost:8080/api/clist/login/${state.id}/${state.password}`,
+      })
+        .then((ress) => {
+          console.log(ress);
+          const { id } = ress.data;
+          localStorage.setItem('serialNo', id);
           localStorage.setItem('loggedIn', true);
           localStorage.setItem('id', state.id);
           localStorage.setItem('password', state.password);
           res();
-        }
-      });
-
-      rej();
+        })
+        .catch((e) => {
+          console.log(e);
+          localStorage.setItem('loggedIn', false);
+          rej();
+        });
     });
 
     promise
@@ -42,8 +49,7 @@ const Login = () => {
         history.push('/');
       })
       .catch((e) => {
-        alert('User Not Found, Redirecting you to SingUp page');
-        localStorage.setItem('loggedIn', false);
+        alert('User Not Found, Redirecting you to SignUp page');
         history.push('/signup');
       });
   };

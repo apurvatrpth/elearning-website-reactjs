@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import UserList from './UserList';
+import axios from 'axios';
 
 const Signup = () => {
   const history = useHistory();
@@ -24,14 +24,27 @@ const Signup = () => {
     e.preventDefault();
 
     var promise = new Promise((res, rej) => {
-      //insert logic here to add a user, currently it is allowing all users to go ahead (fake login)
-      localStorage.setItem('loggedIn', true);
-      localStorage.setItem('id', state.id);
-      localStorage.setItem('password', state.password);
-      res();
-
-      // localStorage.setItem('loggedIn', false);
-      // rej();
+      axios({
+        method: 'put',
+        url: 'http://localhost:8080/api/clist/signup',
+        data: {
+          student_name: state.id,
+          student_password: state.password,
+        },
+      })
+        .then((ress) => {
+          const { id } = ress.data;
+          localStorage.setItem('serialNo', id);
+          localStorage.setItem('loggedIn', true);
+          localStorage.setItem('id', state.id);
+          localStorage.setItem('password', state.password);
+          res();
+        })
+        .catch((e) => {
+          localStorage.setItem('loggedIn', false);
+          console.log('error ' + e);
+          rej();
+        });
     });
 
     promise
