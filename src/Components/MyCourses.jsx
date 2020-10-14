@@ -11,7 +11,7 @@ export default function MyCourses() {
         <br />
         <br />
         <h2 style={{ textAlign: 'center', color: '#3498db' }}>
-          Login or SignUp to see your registered courses
+          Login or SignUp to see your registered courses, or to buy new Courses.
         </h2>
       </>
     );
