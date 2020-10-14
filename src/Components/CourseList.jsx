@@ -32,4 +32,13 @@ const Courses = [
   },
 ];
 
-export default Courses;
+const CourseImage = {
+  android,
+  ml,
+  swift,
+  wb,
+  graphql,
+  django,
+};
+
+export { CourseImage, Courses };

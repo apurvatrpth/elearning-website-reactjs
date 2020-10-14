@@ -16,7 +16,7 @@ export default function Card(props) {
             <h5 className='card-title font-weight-bold'>{props.title}</h5>
             <p className='card-text'></p>
             <NavLink
-              to={props.isLoggedIn ? '/add' : '/login'}
+              to={localStorage.getItem('loggedIn') ? '/contact' : '/login'}
               className='btn btn-primary'
             >
               Buy now
