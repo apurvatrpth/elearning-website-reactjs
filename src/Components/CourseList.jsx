@@ -1,34 +1,34 @@
 import android from '../pictures/android.jpg';
 import ml from '../pictures/ml.jpeg';
 import swift from '../pictures/swift.png';
-import wb from '../pictures/wb.png';
+import webDev from '../pictures/wb.png';
 import graphql from '../pictures/graphql.png';
 import django from '../pictures/django.jpg';
 
 const Courses = [
   {
     imgsrc: android,
-    title: 'Android Development',
+    title: 'android',
   },
   {
     imgsrc: ml,
-    title: 'Machine Learning',
+    title: 'ml',
   },
   {
     imgsrc: swift,
-    title: 'Swift Development',
+    title: 'swift',
   },
   {
-    imgsrc: wb,
-    title: 'Web Development',
+    imgsrc: webDev,
+    title: 'webDev',
   },
   {
     imgsrc: graphql,
-    title: 'Learn GraphQL',
+    title: 'graphql',
   },
   {
     imgsrc: django,
-    title: 'Learn Django',
+    title: 'django',
   },
 ];
 
@@ -36,7 +36,7 @@ const CourseImage = {
   android,
   ml,
   swift,
-  wb,
+  webDev,
   graphql,
   django,
 };
