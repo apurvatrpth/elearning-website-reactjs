@@ -1,7 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 export default function CourseCard(props) {
+  const DeleteCourse = (e) => {
+    e.preventDefault();
+
+    const serialNo = localStorage.getItem('serialNo');
+
+    axios({
+      method: 'delete',
+      url: `http://localhost:8080/api/clist/delete/${serialNo}/${props.title}`,
+    })
+      .then(() => {
+        alert(`${props.title} deleted`);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <>
       <div className='col-md-2 col-10 mx-auto'>
@@ -13,6 +30,11 @@ export default function CourseCard(props) {
             <NavLink to='/' className='btn btn-primary'>
               Continue Studying
             </NavLink>
+            <br />
+            <br />
+            <button onClick={DeleteCourse} className='btn btn-primary'>
+              Delete Course
+            </button>
           </div>
         </div>
         <br />
